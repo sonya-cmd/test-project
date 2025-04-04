@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'Arh400';
+  src: url('fontsTel/Archivo-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Arh700';
+  src: url('fontsTel/Archivo-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Int';
+  src: url('fontsTel/Inter_18pt-Regular.woff') format('woff');
+}
+
+:root {
+  --primary: #22ccb2;
+}
+
+/* Общие стили */
+html, body, a, li, ul, h1, h2, h3, p, sub, sup, button, span, form, div, section, textarea, input {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* Размеры шрифтов */
+p, ul > li > a, ul > li, h4 {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 { font-size: 24px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  h4, p, ul > li > a, ul > li { font-size: 12px; }
+}
+
+/* Основные стили страницы */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  background: white;
+
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+/* Шапка сайта */
+.header {
+  padding: 15px 0;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.header__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-left: -120px; /* Двигаем влево */
+}
+
+.logo > img {
+  object-fit: contain;
+  height: 46px;
+}
+
+.logo > p {
+  font-family: 'Arh400', sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  color: var(--primary);
+}
+
+/* Навигация */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__nav > ul {
+  display: flex;
+  gap: 70px;
+  padding: 0;
+  margin: 0;
+}
+
+.header__nav a {
+  font-family: 'Int', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #565e6c;
+  position: relative;
+  transition: color 0.3s, font-weight 0.3s;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.header__nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 5px; /* Линия остается толще */
+  background-color: #22ccb2;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: absolute;
+  left: 50%;
+  bottom: -20px; /* Линия остается ниже */
+  transform: translateX(-50%);
+}
+
+.header__nav a:hover::after {
+  width: 150%; /* Делаем линию длиннее слова */
+}
+
+.header__nav a:hover, .header__nav a.active {
+  color: #22ccb2;
+  font-weight: bold;
+}
+
+.header__nav a:hover::after, .header__nav a.active::after {
+  width: 100%;
+}
+
+/* Кнопка */
+.button {
+  border-radius: 6px;
+  border: 1px solid var(--primary);
+  padding: 10px 17px;
+  text-align: center;
+  font-family: 'Int', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--primary);
+  position: relative;
+  left: 125px; /* Смещение кнопки вправо */
+}
